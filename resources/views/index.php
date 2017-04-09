@@ -52,7 +52,7 @@
 						<label for="inputEmail3" class="col-sm-3 control-label">Họ tên</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="name" name="name" placeholder="Vui lòng nhập họ tên"
-								ng-model='sinhviens.name'
+								ng-model='sv.name'
 								ng-required='true'
 								ng-maxlength="40"
 								/>
@@ -63,21 +63,26 @@
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Tuổi</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="age" name="age" placeholder="Vui lòng nhập tuổi" ng-model="sinhviens.age" ng-required="true" />
+							<input type="number" min="1" max="99" class="form-control" id="age" name="age" placeholder="Vui lòng nhập tuổi"
+							ng-model="sv.age"
+							ng-required="true"
+
+							/>
 							<span id="helpBlock2" class="help-block" ng-show="frmSinhVien.age.$error.required">Vui lòng nhập tuổi</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Email</label>
 						<div class="col-sm-9">
-							<input type="email" class="form-control" id="email" name="email" placeholder="Vui lòng nhập Email" ng-model="sinhviens.email" ng-required="true" />
+							<input type="email" class="form-control" id="email" name="email" placeholder="Vui lòng nhập Email" ng-model="sv.email" ng-required="true" />
 							<span id="helpBlock2" class="help-block" ng-show="frmSinhVien.email.$error.required">Vui lòng nhập email</span>
+							<span id="helpBlock2" class="help-block" ng-show="frmSinhVien.email.$error.email">Email không đúng định dạng</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Điện thoại</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="phone" name="phone" placeholder="Vui lòng nhập số điện thoại" ng-model="sinhviens.phone" ng-required="true" />
+							<input type="text" class="form-control" id="phone" name="phone" placeholder="Vui lòng nhập số điện thoại" ng-model="sv.phone" ng-required="true" />
 							<span id="helpBlock2" class="help-block" ng-show="frmSinhVien.phone.$error.required" >Vui lòng nhập điện thoại</span>
 						</div>
 					</div>
@@ -85,7 +90,7 @@
 				</form>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-primary" ng-disabled="frmSinhVien.$invalid">Lưu</button>
+				<button type="button" class="btn btn-primary" ng-disabled="frmSinhVien.$invalid" ng-click="save(state)">Lưu</button>
 			  </div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -97,6 +102,7 @@
 	<script type="text/javascript" src="<?php echo asset("template/js/bootstrap.min.js"); ?>"></script>
 	<script type="text/javascript" src="<?php echo asset("lib/angular.min.js"); ?>"></script>
 	<script type="text/javascript" src="<?php echo asset("app.js"); ?>"></script>
+	<script type="text/javascript" src="<?php echo asset("app/controller/SinhvienController.js"); ?>"></script>
 	<script type="text/javascript">
 	// $(document).ready(function () {
 	// 	$("#btn-add,#btn-edit").click(function () {
