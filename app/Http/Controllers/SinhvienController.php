@@ -15,7 +15,7 @@ class SinhvienController extends BaseController
       return Sinhvien::orderBy('id', 'DESC')->get();
     }
     public function getAdd(Request $request){
-
+        dd($request['name']);
         // $sinhvien = new Sinhvien;
         // $sinhvien->name = $request->input('name');
         // $sinhvien->age = $request->age;
