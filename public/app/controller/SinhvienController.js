@@ -23,14 +23,13 @@ app.controller('SinhvienController',function($scope,$http,API){
             if(state == 'add'){
                var url_add = API + 'add';
                var data = $.param($scope.sv);
-               console.log(data);
                $http({
                     method: 'POST',
                     url: url_add,
                     data : data,
-                    headers: {'Content':'application/x-www-form-urlencoded'}
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
                }).then( function successCallback(response) {
-                      console.log(response);
+                      console.log('ok');
                       // location.reload();
                },function errorCallback(response) {
                 // called asynchronously if an error occurs

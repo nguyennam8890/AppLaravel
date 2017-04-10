@@ -18,4 +18,4 @@ Route::get('/', function () {
 //     return view('index');
 // });
 Route::get('list',['uses'=>'SinhvienController@getList']);
-Route::post('add',['uses'=>'SinhvienController@getAdd']);
+Route::post('add',['uses'=>'SinhvienController@postAdd']);
