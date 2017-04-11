@@ -20,16 +20,18 @@
 					<th>Tuổi</th>
 					<th>Email</th>
 					<th>Điện Thoại</th>
+					<th>Created_at</th>
 					<th width="10%"><button id="btn-add" class="btn btn-primary btn-xs" ng-click="modal('add')">Thêm Sinh Viên</button></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="sv in sinhviens">
-					<td>{{ sv.id }}</td>
+					<td>{{ stt }}</td>
 					<td>{{ sv.name }}</td>
 					<td>{{ sv.age }}</td>
 					<td>{{ sv.email }}</td>
 					<td>{{ sv.phone }}</td>
+					<td>{{ sv.created_at }}</td>
 					<td>
 						<button class="btn btn-default btn-xs btn-detail" id="btn-edit" ng-click="modal('edit')">Sửa</button>
 						<button class="btn btn-danger btn-xs btn-delete">Xóa</button>
@@ -47,6 +49,10 @@
 				<h4 class="modal-title">{{ frmTitle }}</h4>
 			  </div>
 			  <div class="modal-body">
+			  	<div class="alert alert-danger error" style="display:none;">
+			  		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  		<strong>Thông báo!</strong>Tên người dùng đã tồn tại, xin hãy nhập tên khác.
+			  	</div>
 				<form name="frmSinhVien" class="form-horizontal">
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Họ tên</label>
@@ -58,6 +64,7 @@
 								/>
 							<span id="helpBlock2" class="help-block" ng-show="frmSinhVien.name.$error.required">Vui lòng nhập họ tên</span>
 							<span id="helpBlock2" class="help-block" ng-show="frmSinhVien.name.$error.maxlength">Không được nhập quá 40 ký tự</span>
+							<span id="helpBlock2" class="help-block">{{ statusError }}</span>
 						</div>
 					</div>
 					<div class="form-group">

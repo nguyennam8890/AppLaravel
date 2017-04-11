@@ -6,6 +6,7 @@ app.controller('SinhvienController',function($scope,$http,API){
         // this callback will be called asynchronously
         // when the response is available
         $scope.sinhviens = response.data;
+        $scope.stt += 1;
         $scope.modal = function(state){
             $scope.state = state;
             switch(state){
@@ -22,18 +23,23 @@ app.controller('SinhvienController',function($scope,$http,API){
         $scope.save = function(state){
             if(state == 'add'){
                var url_add = API + 'add';
-               var data = $.param($scope.sv);
+               var data    = $.param($scope.sv);
+
                $http({
                     method: 'POST',
                     url: url_add,
                     data : data,
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
                }).then( function successCallback(response) {
-                      console.log('ok');
-                      // location.reload();
+                console.log(response);
+                    if(response.data == 'no ok')
+                    {
+                      $scope.statusError = 'Tên người dùng đã tồn tại';
+                    }
+                    if(response.data == 'ok'){
+                      location.reload();
+                    }
                },function errorCallback(response) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
                 console.log("fail");
               })
             }
@@ -44,6 +50,6 @@ app.controller('SinhvienController',function($scope,$http,API){
       }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
-        console.log("fail");
+        console.log(response);
       });
 })
