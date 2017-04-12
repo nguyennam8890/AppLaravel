@@ -16,6 +16,7 @@
 			<thead>
 				<tr>
 					<th>STT</th>
+					<th>ID</th>
 					<th width="30%">Họ và Tên</th>
 					<th>Tuổi</th>
 					<th>Email</th>
@@ -25,16 +26,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="sv in sinhviens">
-					<td>{{ stt }}</td>
-					<td>{{ sv.name }}</td>
-					<td>{{ sv.age }}</td>
-					<td>{{ sv.email }}</td>
-					<td>{{ sv.phone }}</td>
-					<td>{{ sv.created_at }}</td>
+				<tr ng-repeat="(key,sinhvien) in sinhviens">
+					<td>{{ key+1 }}</td>
+					<td>{{ sinhvien.id }}</td>
+					<td>{{ sinhvien.name }}</td>
+					<td>{{ sinhvien.age }}</td>
+					<td>{{ sinhvien.email }}</td>
+					<td>{{ sinhvien.phone }}</td>
+					<td>{{ sinhvien.created_at }}</td>
 					<td>
-						<button class="btn btn-default btn-xs btn-detail" id="btn-edit" ng-click="modal('edit')">Sửa</button>
-						<button class="btn btn-danger btn-xs btn-delete">Xóa</button>
+						<button class="btn btn-default btn-xs btn-detail" id="btn-edit" ng-click="modal('edit',sinhvien.id)">Sửa</button>
+						<button class="btn btn-danger btn-xs btn-delete" ng-click='confirmDelete(sinhvien.id)'>Xóa</button>
 					</td>
 				</tr>
 			</tbody>
@@ -49,16 +51,13 @@
 				<h4 class="modal-title">{{ frmTitle }}</h4>
 			  </div>
 			  <div class="modal-body">
-			  	<div class="alert alert-danger error" style="display:none;">
-			  		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			  		<strong>Thông báo!</strong>Tên người dùng đã tồn tại, xin hãy nhập tên khác.
-			  	</div>
+			  	
 				<form name="frmSinhVien" class="form-horizontal">
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Họ tên</label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="name" name="name" placeholder="Vui lòng nhập họ tên"
-								ng-model='sv.name'
+								ng-model='sinhvien.name'
 								ng-required='true'
 								ng-maxlength="40"
 								/>
@@ -71,7 +70,7 @@
 						<label for="inputEmail3" class="col-sm-3 control-label">Tuổi</label>
 						<div class="col-sm-9">
 							<input type="number" min="1" max="99" class="form-control" id="age" name="age" placeholder="Vui lòng nhập tuổi"
-							ng-model="sv.age"
+							ng-model="sinhvien.age"
 							ng-required="true"
 
 							/>
@@ -81,7 +80,7 @@
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Email</label>
 						<div class="col-sm-9">
-							<input type="email" class="form-control" id="email" name="email" placeholder="Vui lòng nhập Email" ng-model="sv.email" ng-required="true" />
+							<input type="email" class="form-control" id="email" name="email" placeholder="Vui lòng nhập Email" ng-model="sinhvien.email" ng-required="true" />
 							<span id="helpBlock2" class="help-block" ng-show="frmSinhVien.email.$error.required">Vui lòng nhập email</span>
 							<span id="helpBlock2" class="help-block" ng-show="frmSinhVien.email.$error.email">Email không đúng định dạng</span>
 						</div>
@@ -89,7 +88,7 @@
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">Điện thoại</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="phone" name="phone" placeholder="Vui lòng nhập số điện thoại" ng-model="sv.phone" ng-required="true" />
+							<input type="text" class="form-control" id="phone" name="phone" placeholder="Vui lòng nhập số điện thoại" ng-model="sinhvien.phone" ng-required="true" />
 							<span id="helpBlock2" class="help-block" ng-show="frmSinhVien.phone.$error.required" >Vui lòng nhập điện thoại</span>
 						</div>
 					</div>
@@ -97,7 +96,7 @@
 				</form>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-primary" ng-disabled="frmSinhVien.$invalid" ng-click="save(state)">Lưu</button>
+				<button type="button" class="btn btn-primary" ng-disabled="frmSinhVien.$invalid" ng-click="save(state,id)">Lưu</button>
 			  </div>
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->

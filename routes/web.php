@@ -17,5 +17,8 @@ Route::get('/', function () {
 // Route::get('list', function () {
 //     return view('index');
 // });
-Route::get('list',['uses'=>'SinhvienController@getList']);
-Route::post('add',['uses'=>'SinhvienController@postAdd']);
+Route::get('list',['uses'         =>'SinhvienController@getList']);
+Route::post('add',['uses'         =>'SinhvienController@postAdd']);
+Route::get('edit/{id}',['uses'    =>'SinhvienController@getEdit']);
+Route::post('edit/{id}',['uses'   =>'SinhvienController@postEdit']);
+Route::post('delete/{id}',['uses' =>'SinhvienController@getDelete']);
