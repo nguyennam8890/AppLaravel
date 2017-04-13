@@ -61,6 +61,30 @@ information.controller('InformationController',function($scope, $http, API_INFO)
 				});
 			}
 		}
+		$scope.ConfirmDelete = function(state,id){
+			if(state == 'delete'){
+				var ConfirmDelete = confirm('Bạn có chắc muốn xóa bản ghi này không?');
+				if(ConfirmDelete)
+				{
+					$http({
+					url:API_INFO + '/delete/' + id,
+					method: 'POST',
+				}).then(function successCallback(response){
+					if(response.data == 'ok'){
+						location.reload();
+					}else{
+						alert('Lỗi khi xóa, hãy xem lại log');
+					}
+
+				}, function errorCallback(response){
+					alert('Lỗi khi xóa dữ liệu, xem log để biết thêm chi tiết');
+					console.log(response);
+				});
+				}
+			}else{
+				return false;
+			}
+		}
 	}, function failCallbacks(response){
 		console.log(response);
 	});

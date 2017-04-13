@@ -41,5 +41,11 @@ class InformationController extends BaseController
 
 	return 'ok';
    }
+   public function postDelete($id)
+   {
+   	$information = Information::findOrFail($id);
+   	$information->delete();
+   	return 'ok';
+   }
 }
 

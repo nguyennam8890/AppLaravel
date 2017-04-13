@@ -31,3 +31,4 @@ Route::post('delete/{id}',['uses' =>'SinhvienController@getDelete']);
 	Route::post('information/add',['uses'            =>'InformationController@postAdd']);
 	Route::get('information/edit/{id}',['uses'       =>'InformationController@getEdit']);
 	Route::post('information/edit/{id}',['uses'      =>'InformationController@postEdit']);
+	Route::post('information/delete/{id}',['uses'      =>'InformationController@postDelete']);

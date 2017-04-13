@@ -66,7 +66,7 @@
       				<button type="button" class="btn btn-info" ng-click="modal('edit',information.id)">Edit</button>
       			</td>
       			<td>
-      				<button type="button" class="btn btn-danger">Delete</button>
+      				<button type="button" class="btn btn-danger" ng-click="ConfirmDelete('delete',information.id)">Delete</button>
       			</td>
       		</tr>
       	</tbody>
