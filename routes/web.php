@@ -22,3 +22,12 @@ Route::post('add',['uses'         =>'SinhvienController@postAdd']);
 Route::get('edit/{id}',['uses'    =>'SinhvienController@getEdit']);
 Route::post('edit/{id}',['uses'   =>'SinhvienController@postEdit']);
 Route::post('delete/{id}',['uses' =>'SinhvienController@getDelete']);
+//information 
+
+ Route::get('information', function () {
+    return view('information');
+});
+	Route::get('information/listinformation',['uses' =>'InformationController@getListInformation']);
+	Route::post('information/add',['uses'            =>'InformationController@postAdd']);
+	Route::get('information/edit/{id}',['uses'       =>'InformationController@getEdit']);
+	Route::post('information/edit/{id}',['uses'      =>'InformationController@postEdit']);
