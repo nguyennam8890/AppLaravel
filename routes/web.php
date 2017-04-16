@@ -32,3 +32,5 @@ Route::post('delete/{id}',['uses' =>'SinhvienController@getDelete']);
 	Route::get('information/edit/{id}',['uses'       =>'InformationController@getEdit']);
 	Route::post('information/edit/{id}',['uses'      =>'InformationController@postEdit']);
 	Route::post('information/delete/{id}',['uses'      =>'InformationController@postDelete']);
+Route::get('test1', function () {return view('test1'); });
+Route::get('directive', function () {return view('directive'); });
