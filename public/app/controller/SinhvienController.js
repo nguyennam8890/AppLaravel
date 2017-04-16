@@ -1,7 +1,7 @@
 app.controller('SinhvienController',function($scope,$http,API){
     $http({
       method: 'GET',
-      url: API+'list'
+      url: API+'/list'
     }).then(function successCallback(response) {
         $scope.sinhviens = response.data;
         $scope.modal = function(state,id){ 
