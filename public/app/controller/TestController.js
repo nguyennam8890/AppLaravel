@@ -1,5 +1,6 @@
-testAngular.controller('TestController',function($scope,$http,API_TEST){
+testAngular.controller('TestController',function($scope){
     $scope.firstName = "Nguyen Hoài Nam";
+    $scope.names = ["Emil", "Tobias", "Linus"];
 });
 testAngular.directive('vddirective',function(){
     return{
@@ -16,7 +17,7 @@ mainApp.controller('TestController', function($scope) {
     $scope.Mahesh = {};
     $scope.Mahesh.name = "Mahesh Parashar";
     $scope.Mahesh.rollno  = 1;
-    
+
     $scope.Piyush = {};
     $scope.Piyush.name = "Piyush Parashar";
     $scope.Piyush.rollno  = 2;
@@ -30,7 +31,6 @@ mainApp.directive('student', function() {
     }
     directive.compile = function(element, attributes) {
         element.css("border", "1px solid #cccccc");
-
         var linkFunction = function($scope, element, attributes) {
             element.html("Student: <b>"+$scope.student.name +"</b> , Roll No: <b>"+$scope.student.rollno+"</b><br/>");
             element.css("background-color", "#ff00ff");

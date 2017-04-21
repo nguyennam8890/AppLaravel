@@ -17,20 +17,27 @@ Route::get('/', function () {
 // Route::get('list', function () {
 //     return view('index');
 // });
-Route::get('list',['uses'         =>'SinhvienController@getList']);
-Route::post('add',['uses'         =>'SinhvienController@postAdd']);
-Route::get('edit/{id}',['uses'    =>'SinhvienController@getEdit']);
-Route::post('edit/{id}',['uses'   =>'SinhvienController@postEdit']);
-Route::post('delete/{id}',['uses' =>'SinhvienController@getDelete']);
-//information 
+Route::get('list', ['uses' => 'SinhvienController@getList']);
+Route::post('add', ['uses' => 'SinhvienController@postAdd']);
+Route::get('edit/{id}', ['uses' => 'SinhvienController@getEdit']);
+Route::post('edit/{id}', ['uses' => 'SinhvienController@postEdit']);
+Route::post('delete/{id}', ['uses' => 'SinhvienController@getDelete']);
+//information
 
- Route::get('information', function () {
+Route::get('information', function () {
     return view('information');
 });
-	Route::get('information/listinformation',['uses' =>'InformationController@getListInformation']);
-	Route::post('information/add',['uses'            =>'InformationController@postAdd']);
-	Route::get('information/edit/{id}',['uses'       =>'InformationController@getEdit']);
-	Route::post('information/edit/{id}',['uses'      =>'InformationController@postEdit']);
-	Route::post('information/delete/{id}',['uses'      =>'InformationController@postDelete']);
-Route::get('test1', function () {return view('test1'); });
-Route::get('directive', function () {return view('directive'); });
+Route::get('information/listinformation', ['uses' => 'InformationController@getListInformation']);
+Route::post('information/add', ['uses' => 'InformationController@postAdd']);
+Route::get('information/edit/{id}', ['uses' => 'InformationController@getEdit']);
+Route::post('information/edit/{id}', ['uses' => 'InformationController@postEdit']);
+Route::post('information/delete/{id}', ['uses' => 'InformationController@postDelete']);
+Route::get('test1', function () {
+    return view('test1');
+});
+Route::get('test2', function () {
+    return view('test2');
+});
+Route::get('directive', function () {
+    return view('directive');
+});

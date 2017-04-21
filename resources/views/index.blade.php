@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container" ng-controller="SinhvienController">
-    <center><h2>Danh Sách Sinh Viên {{ hoten }}</h2></center>
+    <center ng-bind="hoten"><h2>Danh Sách Sinh Viên </h2></center>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -28,13 +28,13 @@
         </thead>
         <tbody>
         <tr ng-repeat="(key,sinhvien) in sinhviens">
-            <td>{{ key+1 }}</td>
-            <td>{{ sinhvien.id }}</td>
-            <td>{{ sinhvien.name }}</td>
-            <td>{{ sinhvien.age }}</td>
-            <td>{{ sinhvien.email }}</td>
-            <td>{{ sinhvien.phone }}</td>
-            <td>{{ sinhvien.created_at }}</td>
+            <td ng-bind="key+1"></td>
+            <td ng-bind="sinhvien.id"></td>
+            <td>@{{ sinhvien.name }}</td>
+            <td ng-bind="sinhvien.age"></td>
+            <td ng-bind="sinhvien.email"></td>
+            <td ng-bind="sinhvien.phone">{</td>
+            <td ng-bind="sinhvien.created_at"></td>
             <td>
                 <button class="btn btn-default btn-xs btn-detail" id="btn-edit" ng-click="modal('edit',sinhvien.id)">
                     Sửa
@@ -52,7 +52,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">{{ frmTitle }}</h4>
+                    <h4 class="modal-title" ng-bind="frmTitle"></h4>
                 </div>
                 <div class="modal-body">
 
@@ -64,11 +64,10 @@
                                        placeholder="Vui lòng nhập họ tên"
                                        ng-model='sinhvien.name'
                                        ng-required='true'
-                                       ng-maxlength="40"
-                                />
+                                       ng-maxlength="40" />
                                 <span id="helpBlock2" class="help-block" ng-show="frmSinhVien.name.$error.required">Vui lòng nhập họ tên</span>
                                 <span id="helpBlock2" class="help-block" ng-show="frmSinhVien.name.$error.maxlength">Không được nhập quá 40 ký tự</span>
-                                <span id="helpBlock2" class="help-block">{{ statusError }}</span>
+                                <span id="helpBlock2" class="help-block" ng-bind="statusError"></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -118,13 +117,5 @@
 <script type="text/javascript" src="<?php echo asset("lib/angular.min.js"); ?>"></script>
 <script type="text/javascript" src="<?php echo asset("app.js"); ?>"></script>
 <script type="text/javascript" src="<?php echo asset("app/controller/SinhvienController.js"); ?>"></script>
-<script type="text/javascript">
-    // $(document).ready(function () {
-    // 	$("#btn-add,#btn-edit").click(function () {
-    // 		$('#myModal').modal('show')
-    // 	});
-    // });
-</script>
-
 </body>
 </html>

@@ -11,7 +11,9 @@
     <link rel="icon" href="/favicon.ico">
     <title>Starter Template for Bootstrap</title>
     <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -35,15 +37,16 @@
       </div>
     </nav>
     <div class="container" ng-controller="TestController">
+        <select class="form-control" required="required"  ng-model="aaaaaa" ng-options="x for x in names"></select>
       <form action="" method="POST" role="form">
         <legend>Form title</legend>
         <div class="form-group">
           <label for="">label</label>
           <input type="text" class="form-control" placeholder="Input field" ng-model="name">
-          <h1>Hello {{ name }}</h1>
+          <h1>Hello @{{ name }}</h1>
           <p ng-bind="name"></p>
           0
-          <p>Hello {{ firstName }}</p>
+          <p>Hello @{{ firstName }}</p>
           <p ng-bind="firstName"></p>
             <div ng-app="test-angular">
                 <div vddirective></div>
@@ -60,6 +63,7 @@
         <student name = "Mahesh"></student><br/>
         <student name = "Piyush"></student>
     </div>
+
     <script type="text/javascript" src="<?php echo asset("template/js/jquery.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo asset("template/js/bootstrap.min.js"); ?>"></script>
     <script src="<?php echo asset('lib/angular.min.js'); ?>"></script>
