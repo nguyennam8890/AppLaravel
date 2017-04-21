@@ -5,8 +5,8 @@ test2.controller('TestController1', function ($rootScope) {
 test2.controller('TestController2', function ($scope) {
     $scope.content2 = "Nội dung 2";
 });
-test2.controller('mayTinhController', function ($scope) {
 
+test2.controller('mayTinhController', function ($scope) {
     $scope.maytinh = function () {
         var so1 = parseInt($scope.so1);
         var so2 = parseInt($scope.so2);
@@ -30,7 +30,21 @@ test2.controller('mayTinhController', function ($scope) {
                 '...';
                 break;
         }
+    };
+
+});
+test2.controller('directiveController',function($scope){
+    $scope.showMessage = function () {
+        alert("Xin chao");
     }
 });
+test2.directive('message', function () {
+    return function (scope, element, attrs) {
+        element.bind('mouseenter', function(){
+            scope.showMessage();
+        });
+    }
+});
+
 
 

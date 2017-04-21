@@ -73,6 +73,9 @@
 
             </div>
         </div>
+        <div ng-controller="directiveController">
+                <div message>Thong bao</div>
+        </div>
     </div>
     <script type="text/javascript" src="<?php echo asset("template/js/jquery.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo asset("template/js/bootstrap.min.js"); ?>"></script>
