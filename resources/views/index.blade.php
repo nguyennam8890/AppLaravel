@@ -117,5 +117,6 @@
 <script type="text/javascript" src="<?php echo asset("lib/angular.min.js"); ?>"></script>
 <script type="text/javascript" src="<?php echo asset("app.js"); ?>"></script>
 <script type="text/javascript" src="<?php echo asset("app/controller/SinhvienController.js"); ?>"></script>
+
 </body>
 </html>

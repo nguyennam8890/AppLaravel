@@ -41,3 +41,15 @@ Route::get('test2', function () {
 Route::get('directive', function () {
     return view('directive');
 });
+Route::get('temp', function () {
+    return view('template');
+});
+Route::get('temp2', function () {
+    return view('template2');
+});
+Route::get('temp2/home', function () {
+    return view('home');
+});
+Route::get('login', function() {
+    return view('login');
+});

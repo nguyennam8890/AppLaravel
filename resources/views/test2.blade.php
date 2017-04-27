@@ -74,7 +74,82 @@
             </div>
         </div>
         <div ng-controller="directiveController">
-                <div message>Thong bao</div>
+            <div message>message</div>
+            <message2>message2</message2>
+        </div>
+        <div class="clearfix"></div>
+        <div ng-controller="messageController" style="margin: 30px auto;display: block;width: 300px;">
+            <message4>message4</message4>
+            <div class="clearfix"></div>
+            <message3 show="showMessage(messages)"></message3>
+            <div message5 content="controllerContent"></div>
+        </div>
+
+        <div ng-controller="transludeController" style="margin: 30px auto;display: block;width: 300px;">
+            <h1 ng-bind="hoten"></h1>
+
+            <form action="" method="POST" role="form">
+                <legend>Login</legend>
+                <div class="form-group">
+                    <label for="">User Name:</label>
+                    <input type="text" class="form-control" id="" placeholder="Input field">
+                </div>
+                <login></login>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+        <div ng-controller="returnController">
+            <h1>returnController</h1>
+            <form action="" method="POST" role="form">
+                <legend>Login</legend>
+                <div class="form-group">
+                    <label for="">User Name:</label>
+                    <input type="text" class="form-control" id="" placeholder="Input field" ng-model="username">
+                </div>
+                <div class="form-group">
+                    <label for="">User Name:</label>
+                    <input type="text" class="form-control" id="" placeholder="Input field" ng-model="password">
+                </div>
+                <button class="btn btn-primary" ng-click="CtrLogin.CheckLogin()">Submit</button>
+            </form>
+        </div>
+        <div ng-controller="reapeatController">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Address</th>
+                    <th>First</th>
+                    <th>Middle</th>
+                    <th>Last</th>
+                    <th>Even</th>
+                    <th>Odd</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(key,student) in students">
+                    <td>@{{ key+1 }}</td>
+                    <td>@{{ student.name }}</td>
+                    <td>@{{ student.age }}</td>
+                    <td>@{{ student.address }}</td>
+                    <td>@{{ $first }}</td>
+                    <td>@{{ $middle }}</td>
+                    <td>@{{ $last }}</td>
+                    <td>@{{ $even }}</td>
+                    <td>@{{ $odd }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-controller="scopeController">
+            <helloscope></helloscope>
+            <helloscope></helloscope>
+            <helloscope></helloscope>
+            <helloscope></helloscope>
+            <helloscope></helloscope>
         </div>
     </div>
     <script type="text/javascript" src="<?php echo asset("template/js/jquery.min.js"); ?>"></script>
